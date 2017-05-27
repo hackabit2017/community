@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
+import android.graphics.Color;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -32,6 +34,12 @@ public class FragmentAddEvent extends Fragment {
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private ImageView cameraShot;
+    private ToggleButton dangerTB;
+    private ToggleButton funTB;
+    private ToggleButton lostTB;
+    private ToggleButton culturalTB;
+    private ToggleButton sportTB;
+    boolean isPressed = false;
 
 
     // TODO: Rename and change types of parameters
@@ -91,8 +99,150 @@ public class FragmentAddEvent extends Fragment {
             }
         });
 
+        dangerTB = (ToggleButton) rootView.findViewById(R.id.dangerTB);
+        funTB = (ToggleButton) rootView.findViewById(R.id.funTB);
+        lostTB = (ToggleButton) rootView.findViewById(R.id.lostTB);
+        culturalTB = (ToggleButton) rootView.findViewById(R.id.culturalTB);
+        sportTB = (ToggleButton) rootView.findViewById(R.id.sportTB);
+
+        dangerTB.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if(isPressed == false) {
+                    isPressed = true;
+                    funTB.setEnabled(false);
+                    lostTB.setEnabled(false);
+                    culturalTB.setEnabled(false);
+                    sportTB.setEnabled(false);
+                }
+                else
+                    if(dangerTB.isEnabled()) {
+                        isPressed = false;
+                        funTB.setEnabled(true);
+                        lostTB.setEnabled(true);
+                        culturalTB.setEnabled(true);
+                        sportTB.setEnabled(true);
+                    }
+                customizeButton(dangerTB, "#FF0000");
+
+            }
+        });
+
+        funTB.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                if(isPressed == false) {
+                    isPressed = true;
+                    dangerTB.setEnabled(false);
+                    lostTB.setEnabled(false);
+                    culturalTB.setEnabled(false);
+                    sportTB.setEnabled(false);
+                }
+                else
+                if(funTB.isEnabled()) {
+                    isPressed = false;
+                    dangerTB.setEnabled(true);
+                    lostTB.setEnabled(true);
+                    culturalTB.setEnabled(true);
+                    sportTB.setEnabled(true);
+                }
+
+                customizeButton(funTB,"#58D68D");
+
+            }
+        });
+
+        lostTB.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                if(isPressed == false) {
+                    isPressed = true;
+                    dangerTB.setEnabled(false);
+                    funTB.setEnabled(false);
+                    culturalTB.setEnabled(false);
+                    sportTB.setEnabled(false);
+                }
+                else
+                if(lostTB.isEnabled()) {
+                    isPressed = false;
+                    dangerTB.setEnabled(true);
+                    funTB.setEnabled(true);
+                    culturalTB.setEnabled(true);
+                    sportTB.setEnabled(true);
+                }
+
+                customizeButton(lostTB,"#FF00BF");
+
+            }
+        });
+
+        culturalTB.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                if(isPressed == false) {
+                    isPressed = true;
+                    dangerTB.setEnabled(false);
+                    funTB.setEnabled(false);
+                    lostTB.setEnabled(false);
+                    sportTB.setEnabled(false);
+                }
+                else
+                if(culturalTB.isEnabled()) {
+                    isPressed = false;
+                    dangerTB.setEnabled(true);
+                    funTB.setEnabled(true);
+                    lostTB.setEnabled(true);
+                    sportTB.setEnabled(true);
+                }
+
+                customizeButton(culturalTB,"#5499C7");
+
+            }
+        });
+
+        sportTB.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                if(isPressed == false) {
+                    isPressed = true;
+                    dangerTB.setEnabled(false);
+                    funTB.setEnabled(false);
+                    lostTB.setEnabled(false);
+                    culturalTB.setEnabled(false);
+                }
+                else
+                if(sportTB.isEnabled()) {
+                    isPressed = false;
+                    dangerTB.setEnabled(true);
+                    funTB.setEnabled(true);
+                    lostTB.setEnabled(true);
+                    culturalTB.setEnabled(true);
+                }
+
+                customizeButton(sportTB,"#FF8000");
+
+            }
+        });
+
         return rootView;
 
+    }
+
+    public void customizeButton(ToggleButton tb, String color){
+
+        if(!tb.isChecked())
+            tb.setTextColor(Color.parseColor(color));
+        else
+            tb.setTextColor(Color.parseColor("#FFFFFF"));
     }
 
     // TODO: Rename method, update argument and hook method into UI event
