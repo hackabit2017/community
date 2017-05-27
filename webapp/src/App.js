@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header'
+import Wall from './components/Wall'
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <p className="App-intro">
           Events coming from firebase:
         </p>
+        <Wall />
       </div>
     );
   }

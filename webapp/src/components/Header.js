@@ -1,11 +1,12 @@
 import React from 'react';
-import { getEvents } from '../actions/events';
+import { getEvents, getLocations } from '../actions/events';
 import { connect } from 'react-redux';
 
 class Header extends React.Component {
 
     componentWillMount() {
-        this.props.onGetEvent();
+        this.props.dispatchGetEvents();
+        this.props.dispatchGetLocations();
     }
 
     render() {
@@ -15,7 +16,8 @@ class Header extends React.Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onGetEvent: () => dispatch(getEvents()),
+        dispatchGetEvents: () => dispatch(getEvents()),
+        dispatchGetLocations: () => dispatch(getLocations())
     };
 }
 
