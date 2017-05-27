@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header'
 import Wall from './components/Wall'
+import { Grid, Row, Col } from 'react-bootstrap'
 
 class App extends Component {
   render() {
@@ -12,10 +13,15 @@ class App extends Component {
         <div className="App-header">
           <h2>Welcome to CommUnity</h2>
         </div>
-        <p className="App-intro">
-          Events coming from firebase:
-        </p>
-        <Wall />
+        <Grid>
+          <Row >
+            <Col md={8}>
+            </Col>
+            <Col md={4}>
+              <Wall />
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }

@@ -18,7 +18,6 @@ const Wall = props => {
     )
 }
 
-
 function mapStateToProps(state) {
     return {
         events: state.events,
