@@ -67,18 +67,19 @@
         android:layout_height="40dp"
         android:orientation="horizontal"
         android:layout_marginTop="5dp"
-        android:background="@drawable/wall_item_button"
+        android:background="@drawable/button_grey_border"
         >
 
-        <Button
+        <ToggleButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:text="Endorsed"
+            android:textOn="Endorse"
+            android:textOff="Endorsed"
             android:textAllCaps="false"
             android:textSize="20dp"
-            android:textColor="#85929E"
-            android:background="@drawable/wall_item_button"/>
+            android:textColor="#E74C3C"
+            android:background="@drawable/button_grey_border"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -86,7 +87,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:background="@drawable/wall_item_button">
+            android:background="@drawable/button_grey_border">
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
@@ -111,7 +112,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal"
-            android:background="@drawable/wall_item_button">
+            android:background="@drawable/button_grey_border">
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
