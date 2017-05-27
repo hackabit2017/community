@@ -70,14 +70,15 @@
         android:background="@drawable/wall_item_button"
         >
 
-        <Button
+        <ToggleButton
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_weight="1"
-            android:text="Endorsed"
+            android:textOn="Endorse"
+            android:textOff="Endorsed"
             android:textAllCaps="false"
             android:textSize="20dp"
-            android:textColor="#85929E"
+            android:textColor="#E74C3C"
             android:background="@drawable/wall_item_button"/>
 
         <LinearLayout
