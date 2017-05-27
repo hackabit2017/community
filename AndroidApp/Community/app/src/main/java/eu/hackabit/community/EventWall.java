@@ -5,24 +5,15 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-
-public class EventWall extends AppCompatActivity implements OnMapReadyCallback {
+public class EventWall extends AppCompatActivity {
 
     private TextView mTextMessage;
-    private GoogleMap mMap;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,8 +51,7 @@ public class EventWall extends AppCompatActivity implements OnMapReadyCallback {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
-
-    public void goToProfile(View view) {
+    public void goToProfile() {
         Intent intent = new Intent(EventWall.this, Profile.class);
         startActivity(intent);
     }
@@ -97,15 +87,10 @@ public class EventWall extends AppCompatActivity implements OnMapReadyCallback {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-
+            goToProfile();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onMapReady(GoogleMap map) {
-        mMap = map;
     }
 }
