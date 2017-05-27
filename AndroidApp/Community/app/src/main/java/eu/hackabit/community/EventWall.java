@@ -1,10 +1,12 @@
 package eu.hackabit.community;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 public class EventWall extends AppCompatActivity {
@@ -42,4 +44,9 @@ public class EventWall extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+
+    public void goToProfile(View view) {
+        Intent intent = new Intent(EventWall.this, Profile.class);
+        startActivity(intent);
+    }
 }
