@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,10 +21,12 @@ public class EventWall extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText("new activity");
+//                    mTextMessage.setText("new activity");
+                    switchToFragment2();
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+//                    mTextMessage.setText(R.string.title_dashboard);
+                    switchToFragment1();
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
@@ -49,4 +52,15 @@ public class EventWall extends AppCompatActivity {
         Intent intent = new Intent(EventWall.this, Profile.class);
         startActivity(intent);
     }
+
+    public void switchToFragment1() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.content, new FragmentAddEvent()).commit();
+    }
+
+    public void switchToFragment2() {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.content, new FragmentEventsWall()).commit();
+    }
+
 }
