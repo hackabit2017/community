@@ -1,10 +1,8 @@
 package eu.hackabit.community;
 
 import android.content.Context;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
