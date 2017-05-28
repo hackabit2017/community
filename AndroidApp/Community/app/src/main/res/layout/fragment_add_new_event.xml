@@ -133,33 +133,36 @@
                     android:layout_height="50dp"
                     android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/button1"
+                    <ToggleButton
+                        android:id="@+id/dangerTB"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_weight="1"
-                        android:text="Danger"
-                        android:textColor="#FFFFFF"
+                        android:textOff="Danger"
+                        android:textOn="Danger"
+                        android:textColor="#FF0000"
                         android:layout_margin="5dp"
-                        android:background="@drawable/danger_button_on"/>
-                    <Button
-                        android:id="@+id/button2"
+                        android:background="@drawable/custom_toggle_button_danger"/>
+                    <ToggleButton
+                        android:id="@+id/funTB"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_weight="1"
-                        android:text="Fun"
-                        android:textColor="#FFFFFF"
-                        android:background="@drawable/fun_button_on"
+                        android:textOn="Fun"
+                        android:textOff="Fun"
+                        android:textColor="#58D68D"
+                        android:background="@drawable/custom_toggle_button_fun"
                         android:layout_margin="5dp"/>
-                    <Button
-                        android:id="@+id/button3"
+                    <ToggleButton
+                        android:id="@+id/lostTB"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:textColor="#FF00BF"
-                        android:background="@drawable/lost_button_off"
-                        android:text="Lost" />
+                        android:background="@drawable/custom_toggle_button_lost"
+                        android:textOn="Lost"
+                        android:textOff="Lost" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -169,24 +172,28 @@
 
                     android:orientation="horizontal">
 
-                    <Button
+                    <ToggleButton
+                        android:id="@+id/culturalTB"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:textColor="#FFFFFF"
-                        android:background="@drawable/cultural_button_on"
-                        android:text="Cultural" />
+                        android:textColor="#5499C7"
+                        android:background="@drawable/custom_toggle_button_cultural"
+                        android:textOn="Cultural"
+                        android:textOff="Cultural" />
 
-                    <Button
+                    <ToggleButton
+                        android:id="@+id/sportTB"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
                         android:layout_margin="5dp"
                         android:textColor="#FF8000"
                         android:layout_weight="1"
+                        android:background="@drawable/custom_toggle_button_sport"
+                        android:textOn="Sport"
+                        android:textOff="Sport" />
 
-                        android:background="@drawable/sport_button_off"
-                        android:text="Sport" />
 
                     <TextView
                         android:layout_width="wrap_content"
