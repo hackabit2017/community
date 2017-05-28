@@ -38,3 +38,10 @@ export function eventSelected(event) {
         event
     }
 }
+
+export function eventDeselected(event) {
+    return {
+        type: 'EVENT_WAS_DESELECTED',
+        event
+    }
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactMapboxGl, { Layer, Feature, ZoomControl, Popup } from "react-mapbox-gl";
 import { connect } from 'react-redux';
 
-import { eventSelected } from '../actions/events'
+import { eventSelected, eventDeselected } from '../actions/events'
 import Event from './Event'
 
 const EventsMap = (props) => {
@@ -21,7 +21,7 @@ const EventsMap = (props) => {
   }
 
   const _deselectCurrentEvent = (event, mouseEvent) => {
-    console.log('Wanna deselect me?')
+    props.dispatchDeselectCurrentEvent(event)
   }
 
   return (
@@ -84,6 +84,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     dispatchCurrentEvent: (event) => dispatch(eventSelected(event)),
+    dispatchDeselectCurrentEvent: (event) => dispatch(eventDeselected(event))
   };
 }
 
