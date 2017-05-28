@@ -1,6 +1,7 @@
 package eu.hackabit.community;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
@@ -25,15 +26,17 @@ public class Profile extends AppCompatActivity {
         final TextView endorsementsNo = (TextView) findViewById((R.id.textView4));
         endorsementsNo.setText("341 endorsements");
 
-        final ListView listview = (ListView) findViewById(R.id.listView);
-
-        final ArrayList<EventItem> list = new ArrayList<EventItem>();
-        for (int i = 0; i < 10; ++i) {
-            list.add(new EventItem("title " + i, "description " + i));
-        }
-        final StableArrayAdapter adapter = new StableArrayAdapter(this,
-                android.R.layout.simple_list_item_1, list);
-        listview.setAdapter(adapter);
+//        final ListView listview = (ListView) findViewById(R.id.listView);
+//
+//        final ArrayList<EventItem> list = new ArrayList<EventItem>();
+//        for (int i = 0; i < 10; ++i) {
+//            list.add(new EventItem("title " + i, "description " + i));
+//        }
+//        final StableArrayAdapter adapter = new StableArrayAdapter(this,
+//                android.R.layout.simple_list_item_1, list);
+//        listview.setAdapter(adapter);
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.content, new FragmentEventsWall()).commit();
     }
 }
 
