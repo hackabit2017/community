@@ -14,7 +14,7 @@ const App = () => {
     <div className="App">
       <Header />
       <div className="App-header">
-        <h2>Welcome to CommUnity</h2>
+        <h2>CommUnity</h2>
       </div>
       <Grid>
         <Row className="text-left">

@@ -13,6 +13,8 @@ const Event = props => (
         <p className="list-group-item-text text-left"><strong>User: </strong>{props.event.user}</p>
         <p className="list-group-item-text text-left"><strong>Created on: </strong>{props.event.date}</p>
         <p className="list-group-item-text text-left"><strong>Description: </strong>{props.event.description}</p>
+        <p className="list-group-item-text text-left"><strong>Category: </strong>{props.event.tag}</p>
+        <p className="list-group-item-text text-left"><strong>Rating: </strong>{props.event.rating}</p>
         <p className="list-group-item-text text-left"><strong>Position: </strong>
           {props.event.lat}, {props.event.lon}
         </p>
