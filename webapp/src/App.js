@@ -21,7 +21,7 @@ const App = () => {
           <Col md={8}>
             <EventsMap/>
           </Col>
-          <Col md={4}>
+          <Col md={4} className="events_list">
             <Wall />
           </Col>
         </Row>

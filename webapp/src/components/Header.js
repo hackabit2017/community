@@ -10,7 +10,7 @@ class Header extends React.Component {
     }
 
     render() {
-        return (<span>Header is getting events</span>);
+        return(null);
     }
 }
 

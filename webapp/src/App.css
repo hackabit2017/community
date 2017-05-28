@@ -8,14 +8,30 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #FF8000;
+  height: 100px;
   padding: 20px;
   color: white;
+  margin-bottom: 20px;
 }
 
 .App-intro {
   font-size: large;
+}
+
+.events_list{
+  overflow-y: scroll;
+  height: 85vh;
+}
+
+#item{
+  display: table;
+}
+
+.event_img{
+  width: 100%;
+  position: absolute;
+  right:5px;
 }
 
 @keyframes App-logo-spin {
