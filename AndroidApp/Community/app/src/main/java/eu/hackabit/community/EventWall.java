@@ -1,11 +1,14 @@
 package eu.hackabit.community;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -56,6 +59,11 @@ public class EventWall extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToFirebase() {
+        Intent intent = new Intent(EventWall.this, FirebaseActivity.class);
+        startActivity(intent);
+    }
+
     public void switchToFragment1() {
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.content, new FragmentAddEvent()).commit();
@@ -78,6 +86,17 @@ public class EventWall extends AppCompatActivity {
         return true;
     }
 
+    public void sendNotification(String title, String description){
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this);
+        mBuilder.setSmallIcon(R.drawable.common_google_signin_btn_icon_light)
+                .setContentTitle(title)
+                .setContentText(description);
+        NotificationManager mNotificationManager = ( NotificationManager ) getSystemService( Context.NOTIFICATION_SERVICE );
+        mNotificationManager.notify(1, mBuilder.build());
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -87,7 +106,7 @@ public class EventWall extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            goToProfile();
+            goToFirebase();
             return true;
         }
 
