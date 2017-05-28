@@ -1,6 +1,4 @@
 import React from 'react';
-import { getEvents } from '../actions/events';
-import { connect } from 'react-redux';
 
 const Event = props => (
   <span className="list-group-item event-item">
