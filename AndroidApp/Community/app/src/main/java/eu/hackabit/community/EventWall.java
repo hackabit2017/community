@@ -56,6 +56,11 @@ public class EventWall extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void goToFirebase() {
+        Intent intent = new Intent(EventWall.this, FirebaseActivity.class);
+        startActivity(intent);
+    }
+
     public void switchToFragment1() {
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.content, new FragmentAddEvent()).commit();
@@ -87,7 +92,7 @@ public class EventWall extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            goToProfile();
+            goToFirebase();
             return true;
         }
 

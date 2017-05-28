@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "802499495128",
+    "firebase_url": "https://myapplication-d96fe.firebaseio.com",
+    "project_id": "myapplication-d96fe",
+    "storage_bucket": "myapplication-d96fe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802499495128:android:18e00d0fa5d5033d",
+        "android_client_info": {
+          "package_name": "eu.hackabit.community"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802499495128-gaeclqc73vful7f0srna2vlemb8qrtc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "eu.hackabit.community",
+            "certificate_hash": "635f0237fd7d65d7f643424591da9368a314ab99"
+          }
+        },
+        {
+          "client_id": "802499495128-l2ted5cdr92dh1rvv8a43h2fqqhba1qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLkYArYwwoWZtYE7M-52FBROucNH1-_Fk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802499495128-l2ted5cdr92dh1rvv8a43h2fqqhba1qe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
