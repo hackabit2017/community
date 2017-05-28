@@ -1,13 +1,16 @@
 import React from 'react';
-import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl";
+import ReactMapboxGl, { Layer, Feature, ZoomControl, Popup } from "react-mapbox-gl";
 import { connect } from 'react-redux';
 
 import { eventSelected } from '../actions/events'
+import Event from './Event'
 
 const EventsMap = (props) => {
   const eventsAsObj = props.events
   const eventsKeys = Object.keys(eventsAsObj)
   const events = eventsKeys.map(key => Object.assign(eventsAsObj[key], {id: key}))
+  const currentEvent = props.currentEvent
+  const currentCoord = currentEvent && currentEvent.lon && currentEvent.lat ? [currentEvent.lon, currentEvent.lat] : [21.226889, 45.755446]
 
   const _onToggleHover = (pointer, mouseEvent) =>  {
     mouseEvent.map.getCanvas().style.cursor = pointer;
@@ -15,6 +18,10 @@ const EventsMap = (props) => {
 
   const _markerClick = (event, mouseEvent) => {
     props.dispatchCurrentEvent(event)
+  }
+
+  const _deselectCurrentEvent = (event, mouseEvent) => {
+    console.log('Wanna deselect me?')
   }
 
   return (
@@ -40,6 +47,7 @@ const EventsMap = (props) => {
             events.map(event => (
               <Feature
                 key={event.id}
+                offset={[0, -50]}
                 coordinates={[event.lon, event.lat]}
                 onMouseEnter={_onToggleHover.bind(this, "pointer")}
                 onMouseLeave={_onToggleHover.bind(this, "")}
@@ -48,6 +56,19 @@ const EventsMap = (props) => {
             ))
           }
         </Layer>
+        {
+          currentEvent && (
+            <Popup
+              key={currentEvent.id}
+              coordinates={currentCoord}>
+              <Event event={currentEvent}/>
+              <div onClick={_deselectCurrentEvent.bind(this, currentEvent)}>
+                {
+                   "Hide"
+                }
+              </div>
+            </Popup>)
+        }
       </ReactMapboxGl>
     </div>
   )
@@ -56,6 +77,7 @@ const EventsMap = (props) => {
 function mapStateToProps(state) {
   return {
     events: state.events,
+    currentEvent: state.currentEvent
   }
 }
 
