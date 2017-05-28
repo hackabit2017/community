@@ -4,7 +4,7 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  height: 20vp;
 }
 
 .App-header {
@@ -21,11 +21,12 @@
 
 .events_list{
   overflow-y: scroll;
-  height: 85vh;
+  height: 80vh;
 }
 
 #item{
   display: table;
+  width: 100%
 }
 
 .event_img{
