@@ -2,6 +2,8 @@ import React from 'react';
 import ReactMapboxGl, { Layer, Feature, ZoomControl } from "react-mapbox-gl";
 import { connect } from 'react-redux';
 
+import { eventSelected } from '../actions/events'
+
 const EventsMap = (props) => {
   const eventsAsObj = props.events
   const eventsKeys = Object.keys(eventsAsObj)
@@ -12,7 +14,7 @@ const EventsMap = (props) => {
   }
 
   const _markerClick = (event, mouseEvent) => {
-    console.log('You have clicked on: ', event)
+    props.dispatchCurrentEvent(event)
   }
 
   return (
@@ -56,7 +58,14 @@ function mapStateToProps(state) {
     events: state.events,
   }
 }
-const EventsMapContainer = connect(mapStateToProps, null)(EventsMap);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatchCurrentEvent: (event) => dispatch(eventSelected(event)),
+  };
+}
+
+const EventsMapContainer = connect(mapStateToProps, mapDispatchToProps)(EventsMap);
 
 export default EventsMapContainer
 

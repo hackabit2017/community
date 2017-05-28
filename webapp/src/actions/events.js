@@ -31,3 +31,10 @@ export function getLocations() {
         })
     }
 }
+
+export function eventSelected(event) {
+    return {
+        type: 'EVENT_WAS_SELECTED',
+        event
+    }
+}
