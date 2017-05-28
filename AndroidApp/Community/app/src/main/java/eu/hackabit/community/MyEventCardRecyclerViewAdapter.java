@@ -1,10 +1,14 @@
 package eu.hackabit.community;
 
+import android.support.design.widget.Snackbar;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import eu.hackabit.community.FragmentEventsWall.OnListFragmentInteractionListener;
 import eu.hackabit.community.dummy.DummyContent.DummyItem;
@@ -30,6 +34,17 @@ public class MyEventCardRecyclerViewAdapter extends RecyclerView.Adapter<MyEvent
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_eventswall, parent, false);
+
+        ToggleButton endorsed = (ToggleButton) view.findViewById(R.id.endorse_button);
+
+        endorsed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
         return new ViewHolder(view);
     }
 

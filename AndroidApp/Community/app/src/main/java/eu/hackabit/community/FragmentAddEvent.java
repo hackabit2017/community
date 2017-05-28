@@ -14,6 +14,7 @@ import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringDef;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
@@ -55,6 +56,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -152,24 +154,6 @@ public class FragmentAddEvent extends Fragment implements
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        mGoogleApiClient = new GoogleApiClient.Builder(this.getContext())
-                .enableAutoManage(this.getActivity() /* FragmentActivity */, this /* OnConnectionFailedListener */)
-                .addApi(Auth.GOOGLE_SIGN_IN_API)
-                .build();
-
-//        mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
-//        mMessageRecyclerView = (RecyclerView) findViewById(R.id.messageRecyclerView);
-//        mLinearLayoutManager = new LinearLayoutManager(this);
-//        mLinearLayoutManager.setStackFromEnd(true);
-        System.out.println("In create");
-
-
-        mGoogleApiClient = new GoogleApiClient.Builder(this.getContext())
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener((GoogleApiClient.OnConnectionFailedListener) this)
-                .addApi(LocationServices.API)
-                .build();
-
     }
 
     @Override
@@ -177,10 +161,6 @@ public class FragmentAddEvent extends Fragment implements
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_add_new_event, container, false);
-
-        System.out.println("In start");
-        super.onStart();
-        mGoogleApiClient.connect();
 
         mUsername = ANONYMOUS;
 
@@ -236,13 +216,17 @@ public class FragmentAddEvent extends Fragment implements
                         String title = eventTitle.getText().toString();
                         String description = eventDescription.getText().toString();
 
+                        if(tagValue == null)
+                            tagValue = "no tags defined";
+
                         Map<String, String> userMap = new HashMap<String, String>();
                         userMap.put("title", title);
                         userMap.put("description", description);
                         userMap.put("photoUrl", downloadUrl.toString());
                         userMap.put("date", String.valueOf(new Date()));
-                        userMap.put("user", "Nutu");
-                        userMap.put("tag", "danger");
+                        userMap.put("user", "Cristi Baca");
+                        userMap.put("tag", tagValue);
+                        userMap.put("rating", String.valueOf((new Random()).nextInt(20)));
                         DatabaseReference newRef = myRef.push();
                         System.out.print("----------test-------------");
                         newRef.setValue(userMap);
@@ -268,6 +252,7 @@ public class FragmentAddEvent extends Fragment implements
             public void onClick(View v) {
                 if(isPressed == false) {
                     isPressed = true;
+                    tagValue = "danger";
                     funTB.setEnabled(false);
                     lostTB.setEnabled(false);
                     culturalTB.setEnabled(false);
@@ -293,6 +278,7 @@ public class FragmentAddEvent extends Fragment implements
 
                 if(isPressed == false) {
                     isPressed = true;
+                    tagValue = "fun";
                     dangerTB.setEnabled(false);
                     lostTB.setEnabled(false);
                     culturalTB.setEnabled(false);
@@ -319,6 +305,7 @@ public class FragmentAddEvent extends Fragment implements
 
                 if(isPressed == false) {
                     isPressed = true;
+                    tagValue = "lost";
                     dangerTB.setEnabled(false);
                     funTB.setEnabled(false);
                     culturalTB.setEnabled(false);
@@ -345,6 +332,7 @@ public class FragmentAddEvent extends Fragment implements
 
                 if(isPressed == false) {
                     isPressed = true;
+                    tagValue = "cultural";
                     dangerTB.setEnabled(false);
                     funTB.setEnabled(false);
                     lostTB.setEnabled(false);
@@ -371,6 +359,7 @@ public class FragmentAddEvent extends Fragment implements
 
                 if(isPressed == false) {
                     isPressed = true;
+                    tagValue = "sport";
                     dangerTB.setEnabled(false);
                     funTB.setEnabled(false);
                     lostTB.setEnabled(false);
@@ -440,6 +429,11 @@ public class FragmentAddEvent extends Fragment implements
     public void onDetach() {
         super.onDetach();
         mListener = null;
+
+        System.out.println("In stop");
+        mGoogleApiClient.stopAutoManage(getActivity());
+        mGoogleApiClient.disconnect();
+        mGoogleApiClient = null;
     }
 
     private void updateUI() {
@@ -508,6 +502,22 @@ public class FragmentAddEvent extends Fragment implements
     public void onAttach(Context context){
         super.onAttach(context);
         thisContext = context;
+
+        if (mGoogleApiClient == null) {
+
+            System.out.println("In create");
+
+            mGoogleApiClient = new GoogleApiClient.Builder(this.getContext())
+                    .addConnectionCallbacks(this)
+                    .enableAutoManage(this.getActivity() /* FragmentActivity */, this /* OnConnectionFailedListener */)
+                    .addOnConnectionFailedListener((GoogleApiClient.OnConnectionFailedListener) this)
+                    .addApi(LocationServices.API)
+                    .build();
+        }
+
+        System.out.println("In start");
+        mGoogleApiClient.connect();
+
     }
 
     @Override
