@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './Community_logo_6.png';
 import './App.css';
 import { Grid, Row, Col } from 'react-bootstrap'
 
@@ -14,7 +14,8 @@ const App = () => {
     <div className="App">
       <Header />
       <div className="App-header">
-        <h2>CommUnity</h2>
+          <img src={logo} className="App-logo"></img>
+          <h2 className="App_title">CommUnity</h2>
       </div>
       <Grid>
         <Row className="text-left">
