@@ -1,9 +1,14 @@
 import React from 'react';
+import { Image } from 'react';
+import '../App.css';
 
 const Event = props => (
-  <span className="list-group-item event-item">
+  <span id="item" className=" list-group-item event-item">
+    <div className ="col-md-6">
+      <img src={props.event.photoUrl} className="event_img"></img>
+    </div>
     {
-      <li className="">
+      <div className="col-md-6">
         <h2 className="list-group-item-heading">{props.event.title}</h2>
         <p className="list-group-item-text text-left"><strong>User: </strong>{props.event.user}</p>
         <p className="list-group-item-text text-left"><strong>Created on: </strong>{props.event.date}</p>
@@ -11,11 +16,27 @@ const Event = props => (
         <p className="list-group-item-text text-left"><strong>Position: </strong>
           {props.event.lat}, {props.event.lon}
         </p>
-      </li>
+      </div>
     }
   </span>
 )
 
+// <Col md={6}>
+//     <img src={props.event.photoUrl} height="42" width="60"></img>
+//     </Col>
+//     <Col md={6}>
+//     {
+// <li className="">
+//   <h2 className="list-group-item-heading">{props.event.title}</h2>
+//   <p className="list-group-item-text text-left"><strong>User: </strong>{props.event.user}</p>
+//   <p className="list-group-item-text text-left"><strong>Created on: </strong>{props.event.date}</p>
+//   <p className="list-group-item-text text-left"><strong>Description: </strong>{props.event.description}</p>
+//   <p className="list-group-item-text text-left"><strong>Position: </strong>
+//       {props.event.lat}, {props.event.lon}
+//   </p>
+// </li>
+// }
+// </Col>
 
 export default Event;
 
