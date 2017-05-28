@@ -16,6 +16,10 @@
   margin-top: 0;
 }
 
+hide_button{
+  text-align: center;
+}
+
 .App-header {
   background-color: #FF8000;
   height: 20vp;

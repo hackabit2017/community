@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { eventSelected, eventDeselected } from '../actions/events'
 import Event from './Event'
+import '../App.css';
 
 const EventsMap = (props) => {
   const eventsAsObj = props.events
@@ -62,7 +63,9 @@ const EventsMap = (props) => {
               key={currentEvent.id}
               coordinates={currentCoord}>
               <Event event={currentEvent}/>
-              <div onClick={_deselectCurrentEvent.bind(this, currentEvent)}>
+              <div
+                  className="hide_button alert-danger col-md-1"
+                  onClick={_deselectCurrentEvent.bind(this, currentEvent)}>
                 {
                    "Hide"
                 }
