@@ -61,6 +61,7 @@ public class FirebaseActivity extends AppCompatActivity implements
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
     private String mUsername;
+    private String tagValue;
     private String mPhotoUrl;
     private Button eventSubmit;
     private EditText eventTitle;
@@ -281,6 +282,7 @@ public class FirebaseActivity extends AppCompatActivity implements
                         userMap.put("photoUrl", downloadUrl.toString());
                         userMap.put("date", String.valueOf(new Date()));
                         userMap.put("user", mUsername);
+                        userMap.put("tag", tagValue);
                         DatabaseReference newRef = myRef.push();
                         System.out.print("----------test-------------");
                         newRef.setValue(userMap);

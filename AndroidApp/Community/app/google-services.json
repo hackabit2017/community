@@ -10,16 +10,68 @@
       "client_info": {
         "mobilesdk_app_id": "1:802499495128:android:18e00d0fa5d5033d",
         "android_client_info": {
+          "package_name": "com.example.cbaca.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802499495128-cf6qmj9t8ptpj8lt9br6dfmtd25hc3a6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cbaca.myapplication",
+            "certificate_hash": "d7af81767a7e95553904a3d05faed03d26c72411"
+          }
+        },
+        {
+          "client_id": "802499495128-gaeclqc73vful7f0srna2vlemb8qrtc3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cbaca.myapplication",
+            "certificate_hash": "635f0237fd7d65d7f643424591da9368a314ab99"
+          }
+        },
+        {
+          "client_id": "802499495128-l2ted5cdr92dh1rvv8a43h2fqqhba1qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLkYArYwwoWZtYE7M-52FBROucNH1-_Fk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802499495128-l2ted5cdr92dh1rvv8a43h2fqqhba1qe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802499495128:android:3e47ca3077c8c2d8",
+        "android_client_info": {
           "package_name": "eu.hackabit.community"
         }
       },
       "oauth_client": [
         {
-          "client_id": "802499495128-gaeclqc73vful7f0srna2vlemb8qrtc3.apps.googleusercontent.com",
+          "client_id": "802499495128-dt26irj2rhsc6mbs90v4qkklkls4b7f5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "eu.hackabit.community",
-            "certificate_hash": "635f0237fd7d65d7f643424591da9368a314ab99"
+            "certificate_hash": "d7af81767a7e95553904a3d05faed03d26c72411"
           }
         },
         {

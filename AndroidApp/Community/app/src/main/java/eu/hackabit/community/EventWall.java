@@ -1,11 +1,14 @@
 package eu.hackabit.community;
 
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -81,6 +84,17 @@ public class EventWall extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.drawer, menu);
         return true;
+    }
+
+    public void sendNotification(String title, String description){
+
+        NotificationCompat.Builder mBuilder =
+                new NotificationCompat.Builder(this);
+        mBuilder.setSmallIcon(R.drawable.common_google_signin_btn_icon_light)
+                .setContentTitle(title)
+                .setContentText(description);
+        NotificationManager mNotificationManager = ( NotificationManager ) getSystemService( Context.NOTIFICATION_SERVICE );
+        mNotificationManager.notify(1, mBuilder.build());
     }
 
     @Override
