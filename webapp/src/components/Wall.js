@@ -7,10 +7,10 @@ const _sortByDate = (event1, event2) => {
     const date1 = event1.date
     const date2 = event2.date
     if (date1 < date2) {
-        return -1
+        return 1
     }
     else if (date1 > date2) {
-        return 1
+        return -1
     }
     else {
         return 0
